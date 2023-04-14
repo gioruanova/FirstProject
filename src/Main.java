@@ -3,28 +3,44 @@ import java.util.*;
 class UserInputDemo {
     public static void main(String[] args) {
         int exchangeRate = 390;
+        int amountToConvert;
+        int salaryByMonth;
+        float finalConvesion;
+        float moneySubstraction;
+
+
         System.out.println("Bienvenido al conversor de tipo de cambio en U$S");
 
-        Scanner sc = new Scanner(System.in);    //System.in is a standard input stream
-        System.out.print("Ingrese el valor en usd que desea convertir a pesos");
-        int amountToConvert = sc.nextInt();
+        System.out.println("======-o_O-======");
 
-        Scanner sc2 = new Scanner(System.in);    //System.in is a standard input stream
-        System.out.print("Ingrese su sueldo en pesos");
-        int amountByMonth = sc2.nextInt();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Ingrese el valor en usd que desea convertir a pesos");
+        amountToConvert = sc.nextInt();
 
-        float finalConvesion = amountToConvert * exchangeRate;
+        Scanner sc2 = new Scanner(System.in);
+        System.out.println("Ingrese su sueldo en pesos");
+        salaryByMonth = sc2.nextInt();
 
-        System.out.println("Total= $" + finalConvesion);
+        finalConvesion = amountToConvert * exchangeRate;
+        moneySubstraction = finalConvesion / salaryByMonth * 100;
 
-        if (amountByMonth == finalConvesion){
-            System.out.println("Ok, podes comprarlo pero quedas justito");
-        } else if (amountByMonth > finalConvesion) {
-            System.out.println("Compra tranqui que te sobra plata");
-        } else{
-            System.out.println("Si te lo compras, comes arroz");
+        System.out.println("%" + moneySubstraction);
+
+
+        System.out.println("============");
+        System.out.println("Al tipo de cambio de: $" + exchangeRate + ", el valor en pesos es de $" + finalConvesion);
+
+
+        System.out.println("============");
+
+        if (moneySubstraction >= 100) {
+            System.out.println("Enserio estas seguro?" + " (equivale al %" + moneySubstraction + " de tu sueldo)");
+        } else if (moneySubstraction >= 85) {
+            System.out.println("Si te lo compras, comes arroz por un tiempo. Vofi..." + " (equivale al %" + moneySubstraction + " de tu sueldo)");
+        } else if ((moneySubstraction >= 60)) {
+            System.out.println("Ok, podes comprarlo pero quedas justito" + " (equivale al %" + moneySubstraction + " de tu sueldo)");
+        } else {
+            System.out.println("Compra tranqui que te sobra plata" + " (equivale al %" + moneySubstraction + " de tu sueldo)");
         }
-
-
     }
 }
