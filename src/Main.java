@@ -1,19 +1,30 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
-public class Main {
+import java.util.*;
+
+class UserInputDemo {
     public static void main(String[] args) {
+        int exchangeRate = 390;
+        System.out.println("Bienvenido al conversor de tipo de cambio en U$S");
 
-		int segundoNumero;
-		int primerNumero;
+        Scanner sc = new Scanner(System.in);    //System.in is a standard input stream
+        System.out.print("Ingrese el valor en usd que desea convertir a pesos");
+        int amountToConvert = sc.nextInt();
+
+        Scanner sc2 = new Scanner(System.in);    //System.in is a standard input stream
+        System.out.print("Ingrese su sueldo en pesos");
+        int amountByMonth = sc2.nextInt();
+
+        float finalConvesion = amountToConvert * exchangeRate;
+
+        System.out.println("Total= $" + finalConvesion);
+
+        if (amountByMonth == finalConvesion){
+            System.out.println("Ok, podes comprarlo pero quedas justito");
+        } else if (amountByMonth > finalConvesion) {
+            System.out.println("Compra tranqui que te sobra plata");
+        } else{
+            System.out.println("Si te lo compras, comes arroz");
+        }
 
 
-
-        System.out.println("Ingrese numero a calcular");
-        primerNumero = (new Scanner(System.in)).nextLine();
-        System.out.println("Ingrese el segundo numero a calcular");
-        segundoNumero = (new Scanner(System.in)).nextLine();
-
-		int resultado = primerNumero + segundoNumero;
-        System.out.println("el resultado es " + resultado);
     }
 }
